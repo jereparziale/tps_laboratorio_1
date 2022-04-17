@@ -34,6 +34,7 @@ int main(void)
 	int finalizar;
 
 
+
 	kilometrosIngresados=0;
 	precioAerolineas=0;
 	precioLatam=0;
