@@ -44,7 +44,6 @@ int main(void)
 	int flagOcupados;
 	int flagVuelosOcupados;
 	int rtnAltaVuelo;
-	int rtnRelacion;
 
 	initPassengers(arrayPasajeros, CANT_PASAJEROS);
 	eFlight_Inicializar(arrayVuelos, CANT_VUELOS);
@@ -76,7 +75,7 @@ int main(void)
 			}
 			if(flagOcupados>0 && flagVuelosOcupados>0)
 			{
-				rtnRelacion=rel_PassengerVuelo_EstadoVuelo(arrayPasajeros, CANT_PASAJEROS, arrayVuelos, CANT_VUELOS);
+				rel_PassengerVuelo_EstadoVuelo(arrayPasajeros, CANT_PASAJEROS, arrayVuelos, CANT_VUELOS);
 			}
 			switch (opcion)
 			{
