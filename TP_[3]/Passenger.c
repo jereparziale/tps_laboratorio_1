@@ -21,6 +21,14 @@ static int Passenger_esString(char* nombre, int tam);
 static int Passenger_esCodigoVuelo(char* codigo, int tam);
 //static int Passenger_esNumerica(int numero);
 //static int Passenger_esNumeroDecimal(float numero);
+
+/// @fn int printPassengerAuxiliar(Passenger*)
+/// @brief Imprime un pasajero en consola con encabezado.
+///
+/// @pre
+/// @post
+/// @param this
+/// @return rtn 0 ok, rtn -1 si this es NULL
 int printPassengerAuxiliar(Passenger* this)
 {
 	int rtn =-1;
@@ -83,6 +91,13 @@ int printPassengerAuxiliar(Passenger* this)
 	return rtn;
 }
 
+/// @fn int printPassengers(Passenger*)
+/// @brief Imprime un pasajero en consola sin encabezado para usar en bucle.
+///
+/// @pre
+/// @post
+/// @param this
+/// @return rtn 0 ok, rtn -1 si this es NULL
 int printPassengers(Passenger* this)
 {
 	int rtn =-1;
@@ -143,6 +158,12 @@ int printPassengers(Passenger* this)
 	return rtn;
 }
 
+/// @fn Passenger Passenger_new*()
+/// @brief Asigna memoria dinamica con malloc para un nuevo this.
+///
+/// @pre
+/// @post
+/// @return
 Passenger* Passenger_new()
 {
 	Passenger* auxiliarP=NULL;
@@ -150,6 +171,20 @@ Passenger* Passenger_new()
 	return auxiliarP; //OJO
 }
 
+/// @fn Passenger Passenger_newParametros*(char*, char*, char*, char*, char*, char*, char*, int*)
+/// @brief Recibe por parametro los datos leidos por el parser como txt, los parsea y setea en el Pasajero creado anteriormente.
+///
+/// @pre
+/// @post
+/// @param idStr
+/// @param nombreStr
+/// @param apellidoStr
+/// @param precioStr
+/// @param tipoPasajeroStr
+/// @param codigoVueloStr
+/// @param estadoVueloStr
+/// @param errores
+/// @return el puntero al pasajero, si un dato es erroneo NULL y free al puntero.
 Passenger* Passenger_newParametros(char* idStr,char* nombreStr,char* apellidoStr,char* precioStr,char* tipoPasajeroStr,char* codigoVueloStr,char* estadoVueloStr, int* errores)
 {
 	Passenger* this=NULL;
@@ -238,7 +273,12 @@ Passenger* Passenger_newParametros(char* idStr,char* nombreStr,char* apellidoStr
 	return this;
 }
 
-
+/// @fn Passenger AltaPasajero*()
+/// @brief Alta de un pasajero con pedido de los datos necesarios.
+///
+/// @pre
+/// @post
+/// @return retorna el puntero al pasajero, si hay un error en algun dato NULL.
 Passenger* AltaPasajero()
 {
 	Passenger* this=NULL;
@@ -260,6 +300,14 @@ Passenger* AltaPasajero()
 	return this;
 }
 
+/// @fn Passenger ModificarPasajero*(Passenger*, int)
+/// @brief Recibe un puntero a pasajero y una opcion de un parametro amodificar.
+///
+/// @pre
+/// @post
+/// @param auxiliarPasajero
+/// @param opcionMod
+/// @return el puntero al pasajero, si un dato es erroneo NULL y free al puntero.
 Passenger* ModificarPasajero(Passenger* auxiliarPasajero, int opcionMod)
 {
 	switch (opcionMod)
@@ -288,6 +336,12 @@ Passenger* ModificarPasajero(Passenger* auxiliarPasajero, int opcionMod)
 	return auxiliarPasajero;
 }
 
+/// @fn void Passenger_delete(Passenger*)
+/// @brief Free a un puntero a pasajero.
+///
+/// @pre
+/// @post
+/// @param this
 void Passenger_delete(Passenger* this)
 {
 	if(this!=NULL)
@@ -296,6 +350,13 @@ void Passenger_delete(Passenger* this)
 	}
 }
 
+/// @fn int requestId(int*)
+/// @brief Pide al usuario un id y lo retorna por referencia.
+///
+/// @pre
+/// @post
+/// @param auxiliarId
+/// @return o ai ok.
 int requestId(int* auxiliarId)
 {
 	int rtn = -1;
@@ -310,6 +371,14 @@ int requestId(int* auxiliarId)
 
 
 //SETTERS
+/// @fn int Passenger_setId(Passenger*, int)
+/// @brief Setea el id a un pasajero.
+///
+/// @pre
+/// @post
+/// @param this
+/// @param id
+/// @return rtn 0 si ok
 int Passenger_setId(Passenger* this,int id)
 {
 	int rtn=-1;
@@ -321,6 +390,14 @@ int Passenger_setId(Passenger* this,int id)
 	return rtn;
 }
 
+/// @fn int Passenger_setNombre(Passenger*, char*)
+/// @brief Setea el nombre a un pasajero.
+///
+/// @pre
+/// @post
+/// @param this
+/// @param id
+/// @return rtn 0 si ok
 int Passenger_setNombre(Passenger* this,char* nombre)
 {
 	int rtn=-1;
@@ -332,6 +409,14 @@ int Passenger_setNombre(Passenger* this,char* nombre)
 	return rtn;
 }
 
+/// @fn int Passenger_setApellido(Passenger* ,char* )
+/// @brief Setea el apellido a un pasajero.
+///
+/// @pre
+/// @post
+/// @param this
+/// @param id
+/// @return rtn 0 si ok
 int Passenger_setApellido(Passenger* this,char* apellido)
 {
 	int rtn=-1;
@@ -343,6 +428,14 @@ int Passenger_setApellido(Passenger* this,char* apellido)
 	return rtn;
 }
 
+/// @fn int Passenger_setCodigoVuelo(Passenger*, char*)
+/// @brief Setea el cdoigo de vuelo a un pasajero.
+///
+/// @pre
+/// @post
+/// @param this
+/// @param id
+/// @return rtn 0 si ok
 int Passenger_setCodigoVuelo(Passenger* this,char* codigoVuelo)
 {
 	int rtn=-1;
@@ -354,6 +447,14 @@ int Passenger_setCodigoVuelo(Passenger* this,char* codigoVuelo)
 	return rtn;
 }
 
+/// @fn int Passenger_setTipoPasajero(Passenger*, int)
+/// @brief Setea el tipo de pasajero a un pasajero.
+///
+/// @pre
+/// @post
+/// @param this
+/// @param tipoPasajero
+/// @return 0 si ok
 int Passenger_setTipoPasajero(Passenger* this,int tipoPasajero)
 {
 	int rtn=-1;
@@ -365,6 +466,14 @@ int Passenger_setTipoPasajero(Passenger* this,int tipoPasajero)
 	return rtn;
 }
 
+/// @fn int Passenger_setPrecio(Passenger*, float)
+/// @brief Setea el precio de un vuelo a un pasajero.
+///
+/// @pre
+/// @post
+/// @param this
+/// @param precio
+/// @return 0 si ok
 int Passenger_setPrecio(Passenger* this,float precio)
 {
 	int rtn=-1;
@@ -376,6 +485,14 @@ int Passenger_setPrecio(Passenger* this,float precio)
 	return rtn;
 }
 
+/// @fn int Passenger_setEstadoVuelo(Passenger*, int)
+/// @brief Setea el estado de un vuelo a un pasajero.
+///
+/// @pre
+/// @post
+/// @param this
+/// @param estadoVuelo
+/// @return 0 si ok
 int Passenger_setEstadoVuelo(Passenger* this,int estadoVuelo)
 {
 	int rtn=-1;
@@ -389,6 +506,14 @@ int Passenger_setEstadoVuelo(Passenger* this,int estadoVuelo)
 
 
 //GETTERS
+/// @fn int Passenger_getId(Passenger*, int*)
+/// @brief Toma el id de un pasajero y lo devuelve.
+///
+/// @pre
+/// @post
+/// @param this
+/// @param id
+/// @return 0 si ok.
 int Passenger_getId(Passenger* this,int* id)
 {
 	int rtn=-1;
@@ -400,6 +525,14 @@ int Passenger_getId(Passenger* this,int* id)
 	return rtn;
 }
 
+/// @fn int Passenger_getNombre(Passenger*, char*)
+/// @brief Toma el nombre de un pasajero y lo devuelve.
+///
+/// @pre
+/// @post
+/// @param this
+/// @param nombre
+/// @return 0 si ok
 int Passenger_getNombre(Passenger* this,char* nombre)//ok
 {
 	int rtn=-1;
@@ -411,6 +544,14 @@ int Passenger_getNombre(Passenger* this,char* nombre)//ok
 	return rtn;
 }
 
+/// @fn int Passenger_getApellido(Passenger*, char*)
+/// @brief Toma el apellido de un pasajero y lo devuelve.
+///
+/// @pre
+/// @post
+/// @param this
+/// @param apellido
+/// @return 0 si ok
 int Passenger_getApellido(Passenger* this,char* apellido)//ok
 {
 	int rtn=-1;
@@ -422,6 +563,14 @@ int Passenger_getApellido(Passenger* this,char* apellido)//ok
 	return rtn;
 }
 
+/// @fn int Passenger_getCodigoVuelo(Passenger*, char*)
+/// @brief Toma el codigo de vuelo de un pasajero y lo devuelve.
+///
+/// @pre
+/// @post
+/// @param this
+/// @param codigoVuelo
+/// @return 0 si ok.
 int Passenger_getCodigoVuelo(Passenger* this,char* codigoVuelo)//ok
 {
 	int rtn=-1;
@@ -433,6 +582,14 @@ int Passenger_getCodigoVuelo(Passenger* this,char* codigoVuelo)//ok
 	return rtn;
 }
 
+/// @fn int Passenger_getTipoPasajero(Passenger*, int*)
+/// @brief Toma el tipo de pasajero de un pasajero y lo devuelve.
+///
+/// @pre
+/// @post
+/// @param this
+/// @param tipoPasajero
+/// @return
 int Passenger_getTipoPasajero(Passenger* this,int* tipoPasajero)
 {
 	int rtn=-1;
@@ -444,6 +601,14 @@ int Passenger_getTipoPasajero(Passenger* this,int* tipoPasajero)
 	return rtn;
 }
 
+/// @fn int Passenger_getPrecio(Passenger*, float*)
+/// @brief Toma el precio de un pasajero y lo devuelve.
+///
+/// @pre
+/// @post
+/// @param this
+/// @param precio
+/// @return
 int Passenger_getPrecio(Passenger* this,float* precio)
 {
 	int rtn=-1;
@@ -455,6 +620,14 @@ int Passenger_getPrecio(Passenger* this,float* precio)
 	return rtn;
 }
 
+/// @fn int Passenger_getEstadoVuelo(Passenger*, int*)
+/// @brief Toma el estado de vuelo de un pasajero y lo devulve.
+///
+/// @pre
+/// @post
+/// @param this
+/// @param estadoVuelo
+/// @return 0 si ok.
 int Passenger_getEstadoVuelo(Passenger* this,int* estadoVuelo)
 {
 	int rtn=-1;
@@ -466,6 +639,14 @@ int Passenger_getEstadoVuelo(Passenger* this,int* estadoVuelo)
 	return rtn;
 }
 
+/// @fn int Passenger_criterioNombre(void*, void*)
+/// @brief Recibe como parametro dos punteros a void que luego se asignan a un pasajero y si el nombre es mayor rtn = 1.
+///
+/// @pre
+/// @post
+/// @param pasajero1
+/// @param pasajero2
+/// @return
 int Passenger_criterioNombre(void* pasajero1, void* pasajero2)
 {
 	Passenger* pasajeroA;
@@ -493,6 +674,14 @@ int Passenger_criterioNombre(void* pasajero1, void* pasajero2)
 
 
 //FUNCIONES ESTATICAS DE VALIDACION
+/// @fn int Passenger_esString(char*, int)
+/// @brief Funcion que valida que un string sea solo de letras.
+///
+/// @pre
+/// @post
+/// @param nombre
+/// @param tam
+/// @return 0 si ok.
 static int Passenger_esString(char* nombre, int tam)
 {
 	int rtn=-1;
@@ -510,6 +699,14 @@ static int Passenger_esString(char* nombre, int tam)
 	return rtn;
 }
 
+/// @fn int Passenger_esCodigoVuelo(char*, int)
+/// @brief   Funcion que valida que un string sea solo de letras y numeros..
+///
+/// @pre
+/// @post
+/// @param codigo
+/// @param tam
+/// @return 0 si ok
 static int Passenger_esCodigoVuelo(char* codigo, int tam)
 {
 	int rtn=-1;
