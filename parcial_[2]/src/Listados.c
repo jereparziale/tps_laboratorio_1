@@ -641,3 +641,64 @@ int controller_List10G(LinkedList* ll_arcade,LinkedList* ll_juegos)
 	return rtn;
 }
 
+int controller_ListFilterSalon(LinkedList* ll_salones)
+{
+	int rtn;
+	LinkedList* auxiliarOrdenar=NULL;
+	int len_ll=ll_len(ll_salones);
+	if(ll_salones!=NULL)
+	{
+		if(len_ll>0)
+		{
+			auxiliarOrdenar=ll_Filter(ll_salones, Salon_filterTipo);
+			if(controller_ListSalones(auxiliarOrdenar)==0)
+			{
+				rtn=0;
+			}
+			else
+			{
+				rtn=-3; //SIN OCURRENCIAS
+			}
+		}
+		else
+		{
+			rtn=-2; //LL VACNIA
+		}
+	}
+	else
+	{
+		rtn=-1; // LL NULA
+	}
+    return rtn;
+}
+
+int controller_ListFilterArcade(LinkedList* ll_arcade,LinkedList* ll_juegos)
+{
+	int rtn;
+	LinkedList* auxiliarOrdenar=NULL;
+	int len_ll=ll_len(ll_arcade);
+	if(ll_arcade!=NULL)
+	{
+		if(len_ll>0)
+		{
+			auxiliarOrdenar=ll_Filter(ll_arcade, Arcade_filterTipo);
+			if(controller_ListArcade(auxiliarOrdenar, ll_juegos)==0)
+			{
+				rtn=0;
+			}
+			else
+			{
+				rtn=-3; //SIN OCURRENCIAS
+			}
+		}
+		else
+		{
+			rtn=-2; //LL VACNIA
+		}
+	}
+	else
+	{
+		rtn=-1; // LL NULA
+	}
+    return rtn;
+}

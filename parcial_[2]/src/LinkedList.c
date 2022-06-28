@@ -614,3 +614,30 @@ int ll_sort(LinkedList* this, int (*pFunc)(void* ,void*), int order)
 	return returnAux;
 }
 
+
+/** \brief Ordena los elementos de la lista utilizando la funcion criterio recibida como parametro
+ * \param pList LinkedList* Puntero a la lista
+ * \param pFunc (*pFunc) Puntero a la funcion criterio
+ * \param order int  [1] Indica orden ascendente - [0] Indica orden descendente
+ * \return int Retorna  (-1) Error: si el puntero a la listas es NULL
+                                ( 0) Si ok
+ */
+LinkedList* ll_Filter(LinkedList* this, int (*pFunc)(void*))
+{
+	LinkedList* thisAux=NULL;
+	thisAux=ll_newLinkedList();
+	void* pElement = NULL;
+	int size=ll_len(this);
+	if(this != NULL && pFunc != NULL){
+		for (int i = 0; i < size; i++)
+		{
+			pElement = ll_get(this, i);
+			if (pFunc(pElement)==1)
+			{
+				ll_add(thisAux, pElement);
+			}
+		}
+	}
+	return thisAux;
+}
+

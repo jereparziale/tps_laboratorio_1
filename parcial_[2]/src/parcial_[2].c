@@ -6,6 +6,8 @@
 
 int main()
 {
+	//agregar un funcion filter algo en la linked list, es como el sort te ordena por algo externo, esto es igual
+	//filtro algo y lo paso por puntero a funcion.
 	setbuf(stdout, NULL);
     int option;
     int salir=1;
@@ -27,6 +29,8 @@ int main()
     int rtnListarE;
     int rtnListarF;
     int rtnListarG;
+    int rtnFilterSalon;
+    int rtnFilterArcade;
     LinkedList* listaSalones = ll_newLinkedList();
     LinkedList* listaJuegos = ll_newLinkedList();
     LinkedList* listaArcades = ll_newLinkedList();
@@ -191,6 +195,7 @@ int main()
 
 				break;
 				case 9:
+					puts("PRUEBA FILTRAR SALONES QUE SEAN SHOPPING");
 					rtnListarJuegos=controller_ListJuegos(listaJuegos);
 					if(rtnListarJuegos==0)
 					{
@@ -202,6 +207,8 @@ int main()
 					{
 						puts("ERROR (-1)");
 					}
+					puts("PRUEBA FILTRAR ARCADES QUE SEAN MONO");
+
 
 				break;
 				case 10:
@@ -213,7 +220,8 @@ int main()
 					 "5. LISTAR ARCADES DE UN SALON\n"//ok
 					 "6. IMPRIMIR SALON CON MAS ARCADE\n"//ok
 					 "7. LISTAR ARCADE MONO Y JUEGO TIPO PLATAFORMA\n"//ok
-					,"\nError opcion no valida", 1, 7, 5)==0)
+					"8. PRUEBA FUNCION FILTER\n"//ok
+					,"\nError opcion no valida", 1, 8, 5)==0)
 					{
 						switch(opcionListados)
 						{
@@ -325,12 +333,42 @@ int main()
 								{
 									puts("\nFIN LISTADO\n");
 								}else if(rtnListarG==-3)
-								{
+						 		{
 									puts("\nSIN OCURRENCIAS\n");
 								}else if(rtnListarG ==-2)
 								{
 									puts("\nSIN ARCADES DE ALTA");
 								}else if(rtnListarG==-1)
+								{
+									puts("\nERROR (-1)");
+								}
+							break;
+							case 8:
+								rtnFilterSalon=controller_ListFilterSalon(listaSalones);
+								if(rtnFilterSalon==0)
+								{
+									puts("\nFIN LISTADO\n");
+								}else if(rtnFilterSalon==-3)
+								{
+									puts("\nSIN OCURRENCIAS\n");
+								}else if(rtnFilterSalon ==-2)
+								{
+									puts("\nSIN SALONES DE ALTA");
+								}else if(rtnFilterSalon==-1)
+								{
+									puts("\nERROR (-1)");
+								}
+								rtnFilterArcade=controller_ListFilterArcade(listaArcades, listaJuegos);
+								if(rtnFilterArcade==0)
+								{
+									puts("\nFIN LISTADO\n");
+								}else if(rtnFilterArcade==-3)
+								{
+									puts("\nSIN OCURRENCIAS\n");
+								}else if(rtnFilterArcade ==-2)
+								{
+									puts("\nSIN ARCADES DE ALTA");
+								}else if(rtnFilterArcade==-1)
 								{
 									puts("\nERROR (-1)");
 								}

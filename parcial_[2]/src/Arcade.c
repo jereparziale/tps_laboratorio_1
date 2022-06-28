@@ -489,6 +489,21 @@ int Arcade_criterioNacionalidad(void* arcade1, void* arcade2)
 	return rtn;
 }
 
+int Arcade_filterTipo(void* arcade1)
+{
+	Arcade* arcadeA;
+	arcadeA=arcade1;
+	int rtn;
+	if(arcadeA != NULL)
+	{
+		if(arcadeA->tipoSonido==AUDIOMONO)
+		{
+			rtn=1;
+		}
+	}
+	return rtn;
+}
+
 //FUNCIONES ESTATICAS DE VALIDACION
 /// @fn int Arcade_esString(char*, int)
 /// @brief Funcion que valida que un string sea solo de letras.

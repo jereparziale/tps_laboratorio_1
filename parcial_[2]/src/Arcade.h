@@ -41,6 +41,7 @@ int Arcade_getIdSalon(Arcade* this,int* FK_idSalon);
 int Arcade_getIdJuego(Arcade* this,int* FK_idJuego);
 
 int Arcade_criterioNacionalidad(void* arcade1, void* arcade2);
+int Arcade_filterTipo(void* arcade1);
 
 
 #endif /* ARCADE_H_ */

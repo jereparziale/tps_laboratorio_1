@@ -33,6 +33,7 @@ int Salon_getNombre(Salon* this,char* nombre);
 int Salon_getDireccion(Salon* this,char* direccion);
 int Salon_getTipoSalon(Salon* this,int* tipoSalon);
 int Salon_criterioNombre(void* salon1, void* salon2);
+int Salon_filterTipo(void* salon1);
 
 
 #endif /* SALON_H_ */

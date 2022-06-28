@@ -409,6 +409,21 @@ int Salon_criterioNombre(void* salon1, void* salon2)
 	return rtn;
 }
 
+int Salon_filterTipo(void* salon1)
+{
+	Salon* salonA;
+	salonA=salon1;
+	int rtn;
+	if(salonA != NULL)
+	{
+		if(salonA->tipoSalon==SHOPPING)
+		{
+			rtn=1;
+		}
+	}
+	return rtn;
+}
+
 //FUNCIONES ESTATICAS DE VALIDACION
 /// @fn int Salon_esString(char*, int)
 /// @brief Funcion que valida que un string sea solo de letras.

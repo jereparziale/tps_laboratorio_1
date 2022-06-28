@@ -25,6 +25,8 @@ int controller_List10E(LinkedList* ll_salones,LinkedList* ll_arcade,LinkedList* 
 int controller_List10F(LinkedList* ll_salones,LinkedList* ll_arcade);
 int printG(Arcade* this, Juego* this_Juego, int contadorOcurrencias);
 int controller_List10G(LinkedList* ll_arcade,LinkedList* ll_juegos);
+int controller_ListFilterSalon(LinkedList* ll_salones);
+int controller_ListFilterArcade(LinkedList* ll_arcade,LinkedList* ll_juegos);
 
 
 
